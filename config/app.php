@@ -168,6 +168,7 @@ return [
 
         Mckenziearts\Notify\LaravelNotifyServiceProvider::class,
         andcarpi\Popper\PopperServiceProvider::class,
+        Czim\Paperclip\Providers\PaperclipServiceProvider::class,
 
         /*
          * Application Service Providers...
