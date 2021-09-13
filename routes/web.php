@@ -22,14 +22,11 @@ Route::get('/', function () {
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 
-Route::get('/testing', function () {
+// Route::get('/testing', function () {
+//     if (condition) {
+//         # code...
+//     } else {
+//         # code...
+//     }
 
-    $client = new GuzzleHttp\Client();
-    $res = $client->request('GET', 'https://api.tikapi.io/public/discover/music?keyword=staydance&cursor=2', [
-        'headers' => [ 'X-API-KEY' => 'vOHsuJfqr8LFyYitEPYWEs606pXvvpVF']
-    ])->getBody()->getContents();
-
-    echo $res->getStatusCode();
-});
-
-
+// });

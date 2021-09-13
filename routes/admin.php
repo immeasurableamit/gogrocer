@@ -14,15 +14,17 @@ use App\Http\Controllers\Admin\CategoryController;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::group(['middleware' => 'auth'], function () {
 
-Route::get('/', function () {
-    return redirect()->route('login');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/', function () {
+        return redirect()->route('login');
+    });
+
+    Route::resource('categories', CategoryController::class);
+
+    Route::post('/categories/featured', [CategoryController::class, 'updateFeatured'])->name('categories.featured');
 });
-
-Route::resource('categories', CategoryController::class);
-
-Route::post('/categories/featured', [CategoryController::class, 'updateFeatured'])->name('categories.featured');
-

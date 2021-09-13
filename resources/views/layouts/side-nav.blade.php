@@ -6,68 +6,40 @@
                  <li class="sidebar-menu-item active open">
                      <a class="sidebar-menu-button" data-toggle="collapse" href="#dashboards_menu">
                          <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                         <span class="sidebar-menu-text">Dashboards</span>
-                         <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                         <span class="sidebar-menu-text">Dashboard</span>
                      </a>
-                     <ul class="sidebar-submenu collapse show " id="dashboards_menu">
-                         <li class="sidebar-menu-item">
-                             <a class="sidebar-menu-button" href="index.html">
-                                 <span class="sidebar-menu-text">Default</span>
-                             </a>
-                         </li>
-                         <li class="sidebar-menu-item">
-                             <a class="sidebar-menu-button" href="analytics.html">
-                                 <span class="sidebar-menu-text">Analytics</span>
-                             </a>
-                         </li>
-                         <li class="sidebar-menu-item">
-                             <a class="sidebar-menu-button" href="staff.html">
-                                 <span class="sidebar-menu-text">Staff</span>
-                             </a>
-                         </li>
-                         <li class="sidebar-menu-item active">
-                             <a class="sidebar-menu-button" href="ecommerce.html">
-                                 <span class="sidebar-menu-text">E-commerce</span>
-                             </a>
-                         </li>
-                         <li class="sidebar-menu-item">
-                             <a class="sidebar-menu-button" href="dashboard-quick-access.html">
-                                 <span class="sidebar-menu-text">Quick Access</span>
-                             </a>
-                         </li>
-                     </ul>
                  </li>
 
                  <li class="sidebar-menu-item">
                      <a class="sidebar-menu-button" data-toggle="collapse" href="#apps_menu">
-                         <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">slideshow</i>
-                         <span class="sidebar-menu-text">Category Management</span>
+                        <i data-v-da9425c4="" class="material-icons">shopping_cart</i>
+                         <span class="sidebar-menu-text"> Products</span>
                          <span class="ml-auto sidebar-menu-toggle-icon"></span>
                      </a>
-                     <ul class="sidebar-submenu collapse" id="apps_menu">
+                     <ul class="sidebar-submenu collapse active open" id="apps_menu">
                          <li class="sidebar-menu-item">
-                             <a class="sidebar-menu-button" href="app-activities.html">
-                                 <span class="sidebar-menu-text">Activities</span>
+                             <a class="sidebar-menu-button" href="{{ route('categories.index') }}">
+                                 <span class="sidebar-menu-text">Category</span>
                              </a>
                          </li>
                          <li class="sidebar-menu-item">
-                             <a class="sidebar-menu-button" href="app-trello.html">
-                                 <span class="sidebar-menu-text">Trello</span>
+                             <a class="sidebar-menu-button" href="{{ route('brands.index') }}">
+                                 <span class="sidebar-menu-text">Brand</span>
                              </a>
                          </li>
                          <li class="sidebar-menu-item">
                              <a class="sidebar-menu-button" href="app-projects.html">
-                                 <span class="sidebar-menu-text">Projects</span>
+                                 <span class="sidebar-menu-text">Attribute</span>
                              </a>
                          </li>
                          <li class="sidebar-menu-item">
                              <a class="sidebar-menu-button" href="app-fullcalendar.html">
-                                 <span class="sidebar-menu-text">Event Calendar</span>
+                                 <span class="sidebar-menu-text">Colors</span>
                              </a>
                          </li>
                          <li class="sidebar-menu-item">
                              <a class="sidebar-menu-button" href="app-chat.html">
-                                 <span class="sidebar-menu-text">Chat</span>
+                                 <span class="sidebar-menu-text">Digital Products</span>
                              </a>
                          </li>
                          <li class="sidebar-menu-item">
@@ -104,7 +76,7 @@
                      </ul>
                  </li>
 
-                 <li class="sidebar-menu-item">
+                 {{-- <li class="sidebar-menu-item">
                      <a class="sidebar-menu-button" data-toggle="collapse" href="#pages_menu">
                          <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
                          <span class="sidebar-menu-text">Pages</span>
@@ -224,10 +196,10 @@
                              </a>
                          </li>
                      </ul>
-                 </li>
+                 </li> --}}
              </ul>
-             <div class="sidebar-heading">Components</div>
-             <div class="sidebar-block p-0 mb-0">
+             {{-- <div class="sidebar-heading">Components</div> --}}
+             {{-- <div class="sidebar-block p-0 mb-0">
                  <ul class="sidebar-menu" id="components_menu">
                      <li class="sidebar-menu-item">
                          <a class="sidebar-menu-button" href="ui-buttons.html">
@@ -362,12 +334,12 @@
                          <a class="dropdown-item" href="login.html">Logout</a>
                      </div>
                  </div>
-             </div>
+             </div> --}}
 
-             <div class="sidebar-p-a">
+             {{-- <div class="sidebar-p-a">
                  <a href="https://themeforest.net/item/stack-admin-bootstrap-4-dashboard-template/22959011"
                      class="btn btn-primary btn-block">Purchase &dollar;35</a>
-             </div>
+             </div> --}}
 
          </div>
      </div>

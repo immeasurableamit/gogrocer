@@ -45,7 +45,7 @@
                             <select class="select2 form-control aiz-selectpicker" name="parent_id" data-toggle="select2" data-placeholder="Choose ..."data-live-search="true" data-selected="{{ $category->parent_id }}">
                                 <option value="0">{{ ('No Parent') }}</option>
                                 @foreach ($categories as $acategory)
-                                    <option value="{{ $acategory->id }}">{{ $acategory->name }}</option>
+                                    <option value="{{ $acategory->id }}" {{ $category->parent_id == $acategory->id ? 'selected' : ''}}>{{ $acategory->name }}</option>
                                     @foreach ($acategory->childrenCategories as $childCategory)
                                         @include('categories.child_category', ['child_category' => $childCategory])
                                     @endforeach
@@ -71,32 +71,22 @@
                             </select>
                         </div>
                     </div>
-    	              <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="signinSrEmail">{{('Banner')}} <small>({{ ('200x200') }})</small></label>
+    	            <div class="form-group row">
+                        <label class="col-md-3 col-form-label" for="signinSrEmail">{{ 'Banner' }}
+                            <small>({{ '200x200' }})</small></label>
                         <div class="col-md-9">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text bg-soft-secondary font-weight-medium">{{ ('Browse')}}</div>
-                                </div>
-                                <div class="form-control file-amount">{{ ('Choose File') }}</div>
-                                <input type="hidden" name="banner" class="selected-files" value="{{ $category->banner }}">
-                            </div>
-                            <div class="file-preview box sm">
-                            </div>
+                            <input type="file" name="banner" class="form-control"
+                                onchange="document.getElementById('banner').src = window.URL.createObjectURL(this.files[0])">
+                            <img src="{{ $category->getFirstMediaUrl('banner') }}" class="category-image" width="100" id="banner" />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-3 col-form-label" for="signinSrEmail">{{('Icon')}} <small>({{ ('32x32') }})</small></label>
+                        <label class="col-md-3 col-form-label" for="signinSrEmail">{{ 'Icon' }}
+                            <small>({{ '32x32' }})</small></label>
                         <div class="col-md-9">
-                            <div class="input-group" data-toggle="aizuploader" data-type="image">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text bg-soft-secondary font-weight-medium">{{ ('Browse')}}</div>
-                                </div>
-                                <div class="form-control file-amount">{{ ('Choose File') }}</div>
-                                <input type="hidden" name="icon" class="selected-files" value="{{ $category->icon }}">
-                            </div>
-                            <div class="file-preview box sm">
-                            </div>
+                            <input type="file" name="icon" class="form-control"
+                                onchange="document.getElementById('icon').src = window.URL.createObjectURL(this.files[0])">
+                            <img src="{{ $category->getFirstMediaUrl('icon') }}" class="category-image" id="icon" width="100" />
                         </div>
                     </div>
                     <div class="form-group row">

@@ -66,49 +66,51 @@
                                             <td>{{ $category->order_level }}</td>
                                             <td>{{ $category->level }}</td>
                                             <td>
-                                                @if ($category->banner != null)
-                                                    <img src="{{ $category->getFirstMediaUrl('banner', 'banner') }}"
-                                                        alt="{{ 'Banner' }}" class="h-50px">
-                                                @else
-                                                    —
-                                                @endif
-                                            </td>
-                                            <td>
-                                                @if ($category->icon != null)
+                                                @if (!empty($category->getFirstMediaUrl('banner')))
                                                     <span class="avatar avatar-square avatar-xs">
-                                                        <img src="{{ $category->getFirstMediaUrl('icon', 'icon') }}"
-                                                            class="h-50px" alt="{{ 'icon' }}">
+                                                        <img src="{{ $category->getFirstMediaUrl('banner') }}"
+                                                            alt="{{ 'Banner' }}" class="h-50px" width="40">
                                                     </span>
                                                 @else
-                                                    —
+                                                    -
                                                 @endif
                                             </td>
                                             <td>
-                                                <label class="aiz-switch aiz-switch-success mb-0 form-check form-switch">
-                                                    <div
-                                                        class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
-                                                        <input checked="" type="checkbox" id="subscribe"
-                                                            class="custom-control-input" onchange="update_featured(this)"
-                                                            value="{{ $category->id }}" <?php if ($category->featured == 1) {
+                                                @if (!empty($category->getFirstMediaUrl('icon')))
+                                                    <span class="avatar avatar-square avatar-xs">
+                                                        <img src="{{ $category->getFirstMediaUrl('icon') }}"
+                                                            alt="{{ 'Icon' }}" class="h-50px" width="40">
+                                                    </span>
+                                                @else
+                                                    -
+                                                @endif
+                                            </td>
+
+                                            <td>
+                                                <div
+                                                    class="custom-control custom-checkbox-toggle custom-control-inline mr-1">
+                                                    <input type="checkbox" id="subscribe{{ $category->id }}"
+                                                        class="custom-control-input" onchange="update_featured(this)"
+                                                        value="{{ $category->id }}" <?php if ($category->featured == 1) {
     echo 'checked';
 } ?>>
-                                                        <label class="custom-control-label" for="subscribe"></label>
-                                                    </div>
-
-                                                </label>
+                                                    <label class="custom-control-label"
+                                                        for="subscribe{{ $category->id }}"></label>
+                                                </div>
                                             </td>
+
                                             <td>{{ $category->commision_rate }} %</td>
                                             <td class="text-right">
-                                                <a {{ Popper::arrow()->size('large')->pop('Reset the results to default') }} class="btn btn-soft-primary btn-icon btn-circle btn-sm"
+                                                <a class="btn btn-soft-primary btn-icon btn-circle btn-sm"
                                                     href="{{ route('categories.edit', ['category' => $category->id]) }}"
-                                                    title="{{ 'Edit' }}">
+                                                    title="Edit">
                                                     <i class="las la-edit"></i>
                                                 </a>
-                                                <a href="#" data-target="#delete-modal"
+                                                <a href="#"
                                                     class="btn btn-soft-danger btn-icon btn-circle btn-sm confirm-delete"
                                                     data-href="{{ route('categories.destroy', $category->id) }}"
                                                     title="{{ 'Delete' }}">
-                                                    <i class="las la-trash" ></i>
+                                                    <i class="las la-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
