@@ -19,4 +19,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+// Route::get('logout', [AuthController::class, 'logout'])->name('logout');

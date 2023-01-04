@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('backend.layouts.app')
 
 @section('style')
     <style>
         .category-image {
             margin-top: 20px;
         }
-
     </style>
 @endsection
 
@@ -39,8 +38,8 @@
                                 <div class="form-group row">
                                     <label class="col-md-3 col-form-label">{{ 'Name' }}</label>
                                     <div class="col-md-9">
-                                        <input type="text" placeholder="{{ 'Name' }}" id="name" name="name"
-                                            class="form-control" required>
+                                        <input type="text" placeholder="{{ 'Name' }}" id="name"
+                                            name="name" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -52,8 +51,9 @@
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                                                 @foreach ($category->childrenCategories as $childCategory)
-                                                    @include('categories.child_category', ['child_category' =>
-                                                    $childCategory])
+                                                    @include('categories.child_category', [
+                                                        'child_category' => $childCategory,
+                                                    ])
                                                 @endforeach
                                             @endforeach
                                         </select>
