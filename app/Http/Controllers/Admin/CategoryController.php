@@ -151,10 +151,22 @@ class CategoryController extends Controller
         }
 
         $category->digital = $request->digital;
-        $category->banner = $request->banner;
-        $category->icon = $request->icon;
         $category->meta_title = $request->meta_title;
         $category->meta_description = $request->meta_description;
+
+        if ($request->hasFile('banner') && $request->file('banner')->isValid()) {
+            if (!empty($category->getFirstMedia('banner'))) {
+                $category->getFirstMedia('banner')->delete();
+            }
+            $category->addMediaFromRequest('banner')->toMediaCollection('banner');
+        }
+
+        if ($request->hasFile('icon') && $request->file('icon')->isValid()) {
+            if (!empty($category->getFirstMedia('icon'))) {
+                $category->getFirstMedia('icon')->delete();
+            }
+            $category->addMediaFromRequest('icon')->toMediaCollection('icon');
+        }
 
         $previous_level = $category->level;
 

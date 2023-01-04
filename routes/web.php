@@ -20,13 +20,3 @@ Route::get('/', function () {
 });
 
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
-
-
-// Route::get('/testing', function () {
-//     if (condition) {
-//         # code...
-//     } else {
-//         # code...
-//     }
-
-// });
