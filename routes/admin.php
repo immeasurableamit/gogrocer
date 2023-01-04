@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\BrandController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('categories', CategoryController::class);
 
     Route::post('/categories/featured', [CategoryController::class, 'updateFeatured'])->name('categories.featured');
+
+    Route::resource('brands', BrandController::class);
+
 });

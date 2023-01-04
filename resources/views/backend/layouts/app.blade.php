@@ -10,7 +10,7 @@
     <!-- Prevent the demo from appearing in search engines -->
     <meta name="robots" content="noindex">
 
-    @include('layouts.style')
+    @include('backend.layouts.style')
 
     @yield('style')
 
@@ -28,7 +28,6 @@
         #app-settings-dd {
             display: none;
         }
-
     </style>
 
 
@@ -38,7 +37,8 @@
     <div class="mdk-header-layout js-mdk-header-layout">
 
         <!-- Header -->
-        @include('layouts.header')
+        @include('backend.layouts.header')
+
 
         <!-- // END Header -->
 
@@ -50,7 +50,8 @@
                 @yield('content')
                 <!-- // END drawer-layout__content -->
 
-                @include('layouts.side-nav')
+                @include('backend.inc.admin_sidenav')
+
 
 
             </div>
@@ -69,8 +70,8 @@
 
 
     <!-- Script -->
-    @include('layouts.script')
-    @include('popper::assets')
+    @include('backend.layouts.script')
+    {{-- @include('backend.popper::assets') --}}
 
     @yield('script')
 

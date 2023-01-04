@@ -12,7 +12,6 @@ class CategoryController extends Controller
 {
     public function __construct()
     {
-        $this->categories_directory = 'admin.product.categories';
     }
     /**
      * Display a listing of the resource.
@@ -32,7 +31,7 @@ class CategoryController extends Controller
         }
 
         $categories = $categories->paginate(15);
-        return view('admin.product.categories.index', compact('title', 'sub_title', 'categories', 'sort_search'));
+        return view('backend.product.categories.index', compact('title', 'sub_title', 'categories', 'sort_search'));
     }
 
     /**
@@ -48,7 +47,7 @@ class CategoryController extends Controller
             ->with('childrenCategories')
             ->get();
 
-        return view($this->categories_directory . '.create', compact('title', 'sub_title', 'categories'));
+        return view('backend.product.categories.create', compact('title', 'sub_title', 'categories'));
     }
 
     /**
@@ -132,7 +131,7 @@ class CategoryController extends Controller
         // dd( $categories);
 
 
-        return view('admin.product.categories.edit', compact('category', 'categories', 'title', 'sub_title'));
+        return view('backend.product.categories.edit', compact('category', 'categories', 'title', 'sub_title'));
     }
 
     /**

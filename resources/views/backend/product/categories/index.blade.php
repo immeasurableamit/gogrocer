@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-
+@extends('backend.layouts.app')
 
 @section('content')
     <div class="mdk-drawer-layout__content page">
@@ -92,8 +90,8 @@
                                                     <input type="checkbox" id="subscribe{{ $category->id }}"
                                                         class="custom-control-input" onchange="update_featured(this)"
                                                         value="{{ $category->id }}" <?php if ($category->featured == 1) {
-    echo 'checked';
-} ?>>
+                                                            echo 'checked';
+                                                        } ?>>
                                                     <label class="custom-control-label"
                                                         for="subscribe{{ $category->id }}"></label>
                                                 </div>
@@ -136,7 +134,6 @@
 @endsection
 
 @section('script')
-
     <script type="text/javascript">
         function update_featured(el) {
             if (el.checked) {
