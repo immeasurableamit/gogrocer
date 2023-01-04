@@ -95,7 +95,6 @@ if (!function_exists('sendSMS')) {
                 $to = substr($to, 3);
             }
 
-
             if (env("ROUTE") == 'dlt_manual') {
                 $fields = array(
                     "sender_id" => env("SENDER_ID"),

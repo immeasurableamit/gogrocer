@@ -23,7 +23,7 @@
                              </a>
                          </li>
                          <li class="sidebar-menu-item">
-                             <a class="sidebar-menu-button" href="{{ route('brands.index') }}">
+                             <a class="sidebar-menu-button" href="">
                                  <span class="sidebar-menu-text">Brand</span>
                              </a>
                          </li>
